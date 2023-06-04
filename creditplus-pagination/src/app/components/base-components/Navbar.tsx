@@ -7,7 +7,6 @@ import Entry from 'contentful'
 
 
 const Container = styled.header`
-    background-color: #7F7F7F;
     display: flex;
     justify-content: flex-end;
     align-items: center;

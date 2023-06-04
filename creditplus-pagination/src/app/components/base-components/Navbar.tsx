@@ -6,12 +6,18 @@ import Dropdown from "./DropDown";
 import Entry from 'contentful'
 
 
-const Container = styled.nav`
+const Container = styled.header`
     background-color: #7F7F7F;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     align-items: center;
+    padding: 20px 50px;
+    box-shadow: 0 1px 8px #ddd;
     color: #fff;
+`;
+
+const NavContainer = styled.nav`
+   
 `;
 
 const Logo = styled.h1`
@@ -67,7 +73,7 @@ const Navbar: React.FC = () => {
 
     return (
         <Container>
-            {/* <NavContainer> */}
+            <NavContainer>
                 <Logo>
                     <LogoImage src="" alt="Logo"/>
                 </Logo>
@@ -78,7 +84,7 @@ const Navbar: React.FC = () => {
                     <Dropdown title="Service"/>
                     <Dropdown title="Über uns"/>
                 </ul>
-            {/* </NavContainer> */}
+            </NavContainer>
         </Container>
     );
 };

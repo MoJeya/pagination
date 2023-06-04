@@ -7,7 +7,7 @@ dotenv.config();
 
 const contetFullClient = createClient({
     space: process.env.SPACE_ID || '',
-    accessToken: process.env.CONTETFUL_ACCESS_TOKEN || '',
+    accessToken: process.env.ACCESS_TOKEN || '',
     environment: process.env.Environment || '',
 })
 

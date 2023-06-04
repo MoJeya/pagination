@@ -8,14 +8,10 @@ import Entry from 'contentful'
 
 const Container = styled.nav`
     background-color: #7F7F7F;
-    padding: 1rem;
-    color: #fff;
-`;
-
-const NavContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    color: #fff;
 `;
 
 const Logo = styled.h1`
@@ -71,7 +67,7 @@ const Navbar: React.FC = () => {
 
     return (
         <Container>
-            <NavContainer>
+            {/* <NavContainer> */}
                 <Logo>
                     <LogoImage src="" alt="Logo"/>
                 </Logo>
@@ -82,7 +78,7 @@ const Navbar: React.FC = () => {
                     <Dropdown title="Service"/>
                     <Dropdown title="Über uns"/>
                 </ul>
-            </NavContainer>
+            {/* </NavContainer> */}
         </Container>
     );
 };

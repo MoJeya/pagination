@@ -38,32 +38,32 @@ const Navbar: React.FC = () => {
     const [logoUrl, setLogoUrl] = useState('');
 
 
- async function fetchLogo(): Promise<NavbarLogo | null> {
-     try{
-         const result = await contetFullClient.getEntries({
-             content_type: 'imageAsset',
-             //TODO: setfilters hier
-         });
-         if(result.items.length > 0) {
-             const logo = result.items[0].fields;
-             return ({
-                 name: logo.name === null ? '' : logo.name.toString(),
-                 image: logo.image?.toString(),
-             });
-         }
-     } catch (error) {
-    }
-    return null;
- }
+//  async function fetchLogo(): Promise<NavbarLogo | null> {
+//      try{
+//          const result = await contetFullClient.getEntries({
+//              content_type: 'imageAsset',
+//              //TODO: setfilters hier
+//          });
+//          if(result.items.length > 0) {
+//              const logo = result.items[0].fields;
+//              return ({
+//                  name: logo.name === null ? '' : logo.name.toString(),
+//                  image: logo.image?.toString(),
+//              });
+//          }
+//      } catch (error) {
+//     }
+//     return null;
+//  }
 
-    async function getLogo() {
-        const url = await fetchLogo();
-        console.log(url);
-        setLogoUrl(url?.name ?? '');
-    }
+//     async function getLogo() {
+//         const url = await fetchLogo();
+//         console.log(url);
+//         setLogoUrl(url?.name ?? '');
+//     }
 
     useEffect(() => {
-        getLogo();
+        // getLogo();
     }, []);
 
 
@@ -73,7 +73,7 @@ const Navbar: React.FC = () => {
         <Container>
             <NavContainer>
                 <Logo>
-                    <LogoImage src={logoUrl} alt="Logo"/>
+                    <LogoImage src="" alt="Logo"/>
                 </Logo>
                 <ul>
                     <Dropdown title="Kredite"/>

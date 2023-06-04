@@ -30,9 +30,9 @@ const Navbar: React.FC = () => {
             <NavContainer>
                 <Logo>Logo</Logo>
                 <ul>
-                    <li><NavLink href="/">PLACEHOLDER</NavLink></li>
-                    <li><NavLink href="/">PLACEHOLDER</NavLink></li>
-                    <li><NavLink href="/">PLACEHOLDER</NavLink></li>
+                    <li><NavLink>PLACEHOLDER</NavLink></li>
+                    <li><NavLink>PLACEHOLDER</NavLink></li>
+                    <li><NavLink>PLACEHOLDER</NavLink></li>
                 </ul>
             </NavContainer>
         </Nav>

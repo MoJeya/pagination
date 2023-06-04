@@ -1,9 +1,6 @@
 import React from "react";
-import styles from './page.module.css'
-import Navbar from "../components/base-components/Navbar";
-
-import Image from "next/image";
-import pageStyles from "./page.module.css";
+import Navbar from "../src/app/components/base-components/Navbar";
+import pageStyles from "../src/app/page.module.css";
 
 const HomePage: React.FC = () => {
     return (
@@ -15,3 +12,5 @@ const HomePage: React.FC = () => {
         </main>
     )
 }
+
+export default HomePage;

@@ -7,10 +7,9 @@ const DropdownContainer = styled.div`
 `;
 
 const DropdownButton = styled.button`
-  display: inline-block;
   background-color: transparent;
   border: none;
-  padding: 0 20px;
+  padding: 0;
   font-size: 1rem;
   cursor: pointer;
 `;
@@ -27,10 +26,11 @@ const DropdownContent = styled.div<{ open: boolean }>`
 `;
 
 const DropdownItem = styled.a`
+  display: block
+  padding: 0.5rem;
   color: #333;
   text-decoration: none;
   cursor: pointer;
-  transition: all 0.3s ease 0s;
 
   &:hover {
     background-color: #f5f5f5;

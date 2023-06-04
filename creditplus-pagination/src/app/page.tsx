@@ -1,5 +1,6 @@
 // import Image from 'next/image'
 // import styles from './page.module.css'
+import Navbar from './components/base-components/Navbar';
 
 // export default function Home() {
 //   return (
@@ -97,7 +98,8 @@
 export default function Home() {
   return (
     <div>
-      <h1>LETS DO THIS</h1>
+      <Navbar/>
+      <h1>step one</h1>
     </div>
   )
 }

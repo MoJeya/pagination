@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import contetFullClient from "../../../contentful";
+import image from 'next/image'
+import Dropdown from "./DropDown";
+import Entry from 'contentful'
 
-const Nav = styled.nav`
-    background-color: #333;
+
+const Container = styled.nav`
+    background-color: #7F7F7F;
     padding: 1rem;
     color: #fff;
 `;
@@ -13,30 +18,77 @@ const NavContainer = styled.div`
     align-items: center;
 `;
 
-const NavLink = styled.a`
-    color: #fff;
-    margin-left: 1rem;
-    text-decoration: none;
-`;
-
 const Logo = styled.h1`
     color: #fff;
 `;
 
+const LogoImage = styled(image) `
+    display: block;
+    width: 50;
+    height: 50;
+`;
+
+interface NavbarLogo{
+    name: string;
+    image: string | undefined;
+}
+    
 
 const Navbar: React.FC = () => {
+    const [logoUrl, setLogoUrl] = useState('');
+
+
+ async function fetchLogo(): Promise<NavbarLogo | null> {
+     try{
+         const result = await contetFullClient.getEntries({
+             content_type: 'imageAsset',
+             //TODO: setfilters hier
+         });
+         if(result.items.length > 0) {
+             const logo = result.items[0].fields;
+             return ({
+                 name: logo.name === null ? '' : logo.name.toString(),
+                 image: logo.image?.toString(),
+             });
+         }
+     } catch (error) {
+    }
+    return null;
+ }
+
+    async function getLogo() {
+        const url = await fetchLogo();
+        console.log(url);
+        setLogoUrl(url?.name ?? '');
+    }
+
+    useEffect(() => {
+        getLogo();
+    }, []);
+
+
+
+
     return (
-        <Nav>
+        <Container>
             <NavContainer>
-                <Logo>Logo</Logo>
+                <Logo>
+                    <LogoImage src={logoUrl} alt="Logo"/>
+                </Logo>
                 <ul>
-                    <li><NavLink>PLACEHOLDER</NavLink></li>
-                    <li><NavLink>PLACEHOLDER</NavLink></li>
-                    <li><NavLink>PLACEHOLDER</NavLink></li>
+                    <Dropdown title="Kredite"/>
+                    <Dropdown title="Versicherung"/>
+                    <Dropdown title="Festgeld"/>
+                    <Dropdown title="Service"/>
+                    <Dropdown title="Über uns"/>
                 </ul>
             </NavContainer>
-        </Nav>
+        </Container>
     );
 };
 
 export default Navbar;
+
+function userState(arg0: never[]): [any, any] {
+    throw new Error("Function not implemented.");
+}

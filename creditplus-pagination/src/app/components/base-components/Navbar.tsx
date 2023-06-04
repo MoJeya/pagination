@@ -24,9 +24,8 @@ const Logo = styled.h1`
 `;
 
 const LogoImage = styled(image) `
-    display: block;
-    width: 50;
-    height: 50;
+    width: 5;
+    height: 5;
 `;
 
 interface NavbarLogo{

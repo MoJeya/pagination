@@ -6,84 +6,28 @@ import Dropdown from "./DropDown";
 import Entry from 'contentful'
 
 
-const Container = styled.header`
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    padding: 20px 50px;
-    box-shadow: 0 1px 8px #ddd;
-    color: #fff;
+const Container = styled.div`
+    background-color: transparent;
+    color: white;
+    width: 100%;
+    height: 80px;
 `;
 
-const NavContainer = styled.nav`
-   
-`;
-
-const Logo = styled.h1`
-    color: #fff;
-`;
-
-const LogoImage = styled(image) `
-    width: 5;
-    height: 5;
-`;
-
-interface NavbarLogo{
-    name: string;
-    image: string | undefined;
-}
+const Ulnav = styled.ul`
     
+`;
 
 const Navbar: React.FC = () => {
     const [logoUrl, setLogoUrl] = useState('');
-
-
-//  async function fetchLogo(): Promise<NavbarLogo | null> {
-//      try{
-//          const result = await contetFullClient.getEntries({
-//              content_type: 'imageAsset',
-//              //TODO: setfilters hier
-//          });
-//          if(result.items.length > 0) {
-//              const logo = result.items[0].fields;
-//              return ({
-//                  name: logo.name === null ? '' : logo.name.toString(),
-//                  image: logo.image?.toString(),
-//              });
-//          }
-//      } catch (error) {
-//     }
-//     return null;
-//  }
-
-//     async function getLogo() {
-//         const url = await fetchLogo();
-//         console.log(url);
-//         setLogoUrl(url?.name ?? '');
-//     }
 
     useEffect(() => {
         // getLogo();
     }, []);
 
-
-
-
     return (
-        <Container>
-            <NavContainer>
-                <Logo>
-                    <LogoImage src="" alt="Logo"/>
-                </Logo>
-                <ul>
-                    <Dropdown title="Kredite"/>
-                    <Dropdown title="Versicherung"/>
-                    <Dropdown title="Festgeld"/>
-                    <Dropdown title="Service"/>
-                    <Dropdown title="Über uns"/>
-                </ul>
-            </NavContainer>
-        </Container>
+       <Container>
+        ^^  NAVBAR
+       </Container>
     );
 };
 

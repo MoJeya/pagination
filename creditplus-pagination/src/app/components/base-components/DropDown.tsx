@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const DropdownContainer = styled.div`
-  position: relative;
-  margin-left: 1rem;
+  padding: 5px;
+  margin: 1rem;
+  position: absolute
 `;
 
 const DropdownButton = styled.button`
@@ -15,7 +16,7 @@ const DropdownButton = styled.button`
 `;
 
 const DropdownContent = styled.div<{ open: boolean }>`
-  display: ${(props) => (props.open ? 'block' : 'none')};
+  display: ${(props) => (props.open ? 'flex' : 'none')};
   position: absolute;
   top: 100%;
   left: 0;
@@ -23,6 +24,7 @@ const DropdownContent = styled.div<{ open: boolean }>`
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 1;
+  flex-direction: column;
 `;
 
 const DropdownItem = styled.a`
@@ -44,7 +46,6 @@ interface DropdownProps {
 
 const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
     const [isOpen, setIsOpen] = useState(false);
-
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     };

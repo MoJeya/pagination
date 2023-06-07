@@ -3,7 +3,7 @@ import Navbar from "./base-components/Navbar";
 import styled from "styled-components";
 
 const StyledHeader = styled.header`
-    background-color: #EAEAEA;
+    background-color: #FAFAFA;
     color: white;
     top: 81px;
     left: 0px;

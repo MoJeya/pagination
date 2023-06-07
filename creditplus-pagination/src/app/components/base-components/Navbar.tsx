@@ -38,7 +38,6 @@ const ControllPanel = styled.div`
 `;
 
 
-
 const Navbar: React.FC = () => {
     const [logoUrl, setLogoUrl] = useState('');
 

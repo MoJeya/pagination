@@ -9,6 +9,7 @@ const Container = styled.div`
   background-color: #F5F5F5;
   border-radius: 45px;
   margin-top: 0.5em;
+  margin-right: 0.5em;
   height: 40px;
 
 

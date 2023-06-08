@@ -19,7 +19,7 @@ const Container = styled.div`
 const NavbarStyled = styled.nav`
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
 `;
 
 const LogoContainer = styled.div`
@@ -37,6 +37,11 @@ const ControllPanel = styled.div`
 
 `;
 
+const NavItems = styled.div`
+    margin-right: 1em;
+    margin-left: 2em;
+    width: 110px;
+`;
 
 const Navbar: React.FC = () => {
     const [logoUrl, setLogoUrl] = useState('');
@@ -51,21 +56,21 @@ const Navbar: React.FC = () => {
                 <LogoContainer>
                     <img src="https://img.logoipsum.com/297.svg" alt="Logo" />
                 </LogoContainer>
-                <div>
-                    <Dropdown title="placeholder" />
-                </div>
-                <div>
-                  <Dropdown title="placeHolder2" />
-                </div>
-                <div>
-                  <Dropdown title="placeHolder3" />
-                </div>
-                <div>
-                  <Dropdown title="placeHolder4" />
-                </div>
-                <div>
-                  <Dropdown title="placeHolder5" />
-                </div>
+                    <NavItems>
+                        <Dropdown title="Kredite" />
+                    </NavItems>
+                    <NavItems>   
+                        <Dropdown title="Versicherungen" />
+                    </NavItems>
+                    <NavItems>
+                        <Dropdown title="Festgeld" />
+                    </NavItems>
+                    <NavItems>
+                        <Dropdown title="Service" />
+                    </NavItems>
+                    <NavItems> 
+                        <Dropdown title="Über uns" />
+                    </NavItems>
                 <ControllPanel>
                     <SwitchButtonContainer/>
                     <LoginButton/>

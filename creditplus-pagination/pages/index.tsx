@@ -4,6 +4,8 @@ import pageStyles from "../src/app/page.module.css";
 import styled, { createGlobalStyle } from "styled-components";
 import Layout from "@/app/components/Layout";
 import { hydrate, render } from "react-dom";
+import { GoogleFonts } from "next-google-fonts";
+import { library } from '@fortawesome/fontawesome-svg-core';
 
 
 //const Index = () => <Layout>Welcome to WHATABYTE!</Layout>;
@@ -28,6 +30,7 @@ a {
 const HomePage: React.FC = () => {
     return (
         <>
+         <GoogleFonts href="https://fonts.googleapis.com/css2?family=Gotham:wght@400;500;600&display=swap" />
         <GlobalStyles/>
         <Layout/>
         </>

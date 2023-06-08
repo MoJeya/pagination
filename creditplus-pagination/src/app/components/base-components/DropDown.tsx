@@ -2,8 +2,10 @@ import React, {useState} from 'react';
 import styled from 'styled-components';
 
 const DropdownContainer = styled.div`
-  padding: 5px;
-  margin: 1rem;
+  padding: 1px;
+  margin-top: 1rem;
+  width: 94px;
+  height: 20px;
   position: absolute
 `;
 
@@ -13,6 +15,7 @@ const DropdownButton = styled.button`
   padding: 0;
   font-size: 1rem;
   cursor: pointer;
+  text-align: end;
 `;
 
 const DropdownContent = styled.div<{ open: boolean }>`
@@ -39,6 +42,15 @@ const DropdownItem = styled.a`
   }
 `;
 
+const Lable = styled.span`
+  width: 64px;
+  height: 20px;
+  text-align: left;
+  font-family: 'Gotham', sans-serif;
+  font-weight: medium;
+  color: #2C2C2C;
+`;
+
 interface DropdownProps {
     title: string;
     // dropdownitems?: string[];
@@ -52,7 +64,9 @@ const Dropdown: React.FC<DropdownProps> = (props: DropdownProps) => {
 
     return (
         <DropdownContainer>
-            <DropdownButton onClick={toggleDropdown}>{props.title}</DropdownButton>
+            <DropdownButton onClick={toggleDropdown}>
+              <Lable>{props.title}</Lable>
+            </DropdownButton>
             <DropdownContent open={isOpen}>
                 <DropdownItem>Item 1</DropdownItem>
                 <DropdownItem>Item 2</DropdownItem>

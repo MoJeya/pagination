@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import contetFullClient from "../../../contentful";
 import image from 'next/image'
 import Dropdown from "./DropDown";
 import Entry from 'contentful'

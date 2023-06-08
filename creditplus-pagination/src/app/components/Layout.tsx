@@ -31,7 +31,8 @@ const Layout: React.FC = () => {
 
   React.useEffect(() => {
     const fetchData = async () => {
-      const entries = await fetchEntries();
+      const entries = await fetchEntries("job");
+      console.log(entries);
       if (entries && entries.items) {
         const jobEntries: JobDTO[] = entries.items.map((entry: any) => ({
           id: entry.sys.id,
@@ -51,9 +52,9 @@ const Layout: React.FC = () => {
       <Header />
         <Content>
         {jobs.map((job) => (
-        <JobCard location={job.location} employmentStatus={job.employmentStatus} key={job.id} category={job.category} title={job.title}/>
+        <JobCard location={job.location} employmentStatus={job.employmentStatus} key={job.id} category={job.title} title={job.title}/>
         ))}
-        <JobCard category={"IT & Projektmanagement"} title={"(Junior) Full Stack Developer (m/w/d)"} location={"Stuttgart"} employmentStatus={"Vollzeit"}/>
+        {/* <JobCard category={"IT & Projektmanagement"} title={"(Junior) Full Stack Developer (m/w/d)"} location={"Stuttgart"} employmentStatus={"Vollzeit"}/> */}
         <NumberedNavigation currentPage={0} totalPages={5} onBack={function (): void {
             throw new Error("Function not implemented.");
           } } onNext={function (): void {

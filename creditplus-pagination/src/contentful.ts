@@ -5,10 +5,12 @@ import dotenv from 'dotenv'
 //Load the env vars from local file
 dotenv.config();
 
-const contetFullClient = createClient({
-    space: process.env.SPACE_ID || '',
-    accessToken: process.env.ACCESS_TOKEN || '',
-    environment: process.env.Environment || '',
+const contentful = require('contentful')
+
+export const client = contentful.createClient({
+  space: 'h4fy7qjn6mui',
+  environment: 'interview', // defaults to 'master' if not set
+  accessToken: "szXlg-qcT3TLc1wT4eZP0fHl0n4rH26vp5jzEx3AVXQ",
 })
 
 
@@ -19,10 +21,11 @@ interface EmptyEntryCollection<T> {
     items: T[];
   }
   
-  export const fetchEntries = async (): Promise<EntryCollection<any> | EmptyEntryCollection<any>> => {
+  export const fetchEntries = async (contentType: string): Promise<EntryCollection<any> | EmptyEntryCollection<any>> => {
     try {
-      const entries = await contetFullClient.getEntries();
-      if (entries.items) {
+      const entries = await  client.getEntries({content_type: contentType,
+        include: 5 });
+      if (entries) {
         return entries;
       }
       console.log('No entries found.');
@@ -31,5 +34,4 @@ interface EmptyEntryCollection<T> {
       console.log(`Error getting entries: ${error}`);
       return { total: 0, skip: 0, limit: 0, items: [] };
     }
-  };
-export default contetFullClient;
+   };

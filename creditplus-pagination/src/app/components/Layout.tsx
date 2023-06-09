@@ -36,10 +36,10 @@ const Layout: React.FC = () => {
       if (entries && entries.items) {
         const jobEntries: JobDTO[] = entries.items.map((entry: any) => ({
           id: entry.sys.id,
-          category: entry.fields.category,
+          category: entry.fields.department.fields.title,
           title: entry.fields.title,
-          location: entry.fields.location,
-          employmentStatus: entry.fields.employmentStatus,
+          location: entry.fields.locations[0].fields.city ?? "",
+          employmentStatus: entry.fields.type.fields.title,
         }));
         setJobs(jobEntries);
       }

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import image from 'next/image'
 import Dropdown from "./DropDown";
 import Entry from 'contentful'
 import ButtonContainer from "./SwitchButton";
 import SwitchButtonContainer from "./SwitchButton";
 import LoginButton from "./LoginButton";
+import  Image  from 'next/image';
 
 
 const Container = styled.div`
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
        <Container>
             <NavbarStyled>
                 <LogoContainer>
-                    <img src="https://img.logoipsum.com/297.svg" alt="Logo" />
+                    <Image src="https://img.logoipsum.com/297.svg" alt="Logo" /> 
                 </LogoContainer>
                     <NavItems>
                         <Dropdown title="Kredite" />

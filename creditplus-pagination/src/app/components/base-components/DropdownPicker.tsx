@@ -116,8 +116,8 @@ const DropdownPicker: React.FC<DropdownProps> = (props: DropdownProps) => {
               {isOpen ? <FontAwesomeIcon icon={faCaretUp} size="2xs" /> : <FontAwesomeIcon icon={faCaretDown} size="2xs" />}
             </DropdownButton>
             <DropdownContent open={isOpen}>
-              {(title === "Wähle eine Stadt") ?uniqueDTOArray.map((loc) => (
-                <DropdownItem onClick={() => setSelectedItem(loc.location)}>{loc.location}</DropdownItem>
+              {(title === "Wähle eine Stadt") ?uniqueDTOArray.map((loc, index) => (
+                <DropdownItem key={index} onClick={() => setSelectedItem(loc.location)}>{loc.location}</DropdownItem>
               )):( <>
                 <DropdownItem>Item 1</DropdownItem>
                 <DropdownItem>Item 2</DropdownItem>

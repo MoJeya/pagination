@@ -25,7 +25,7 @@ const LogoContainer = styled.div`
     align-items: center;
     margin-left: 20px;
     font-size: 1.5rem;
-    margin: 5px;
+    margin: -18px;
 
 `;
 
@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
        <Container>
             <NavbarStyled>
                 <LogoContainer>
-                    <Image src="https://img.logoipsum.com/297.svg" alt="Logo" /> 
+                    <Image src="https://img.logoipsum.com/297.svg" alt="Logo" width={150} height={90} /> 
                 </LogoContainer>
                     <NavItems>
                         <Dropdown title="Kredite" />

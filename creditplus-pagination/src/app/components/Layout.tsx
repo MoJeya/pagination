@@ -4,8 +4,9 @@ import Footer from "./base-components/Footer";
 import NumberedNavigation from "./base-components/NumberdNavigation";
 import JobCard from "./base-components/JobCard";
 import JobDTO from "./assets/JobDTO";
-import React from "react";
+import React, { useState } from "react";
 import { fetchEntries } from "@/contentful";
+import LocationDTO from "./assets/LocationDTO";
 
 
 const LayoutStyle = styled.div`
@@ -28,6 +29,11 @@ const Content = styled.div`
 
 const Layout: React.FC = () => {
   const [jobs, setJobs] = React.useState<JobDTO[]>([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const cardsPerPage = 5;
+  const startIndex = (currentPage - 1) * cardsPerPage;
+  const endIndex = startIndex + cardsPerPage;
+  const cardsToShow = jobs.slice(startIndex, endIndex);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -47,21 +53,40 @@ const Layout: React.FC = () => {
     fetchData();
   }, []);
 
+
+const handlePageClick = (pageNumber: number) => {
+  if(pageNumber !== currentPage) {
+    setCurrentPage(pageNumber);
+  }
+}
   return (
     <LayoutStyle>
-      <Header />
-        <Content>
-        {jobs.map((job) => (
-        <JobCard location={job.location} employmentStatus={job.employmentStatus} key={job.id} category={job.title} title={job.title}/>
+      <Header amountOfJobs={jobs.length} />
+      <Content>
+        {cardsToShow.map((job, index) => (
+          <JobCard
+            location={job.location}
+            employmentStatus={job.employmentStatus}
+            key={job.id}
+            category={job.category}
+            title={job.title}
+          />
         ))}
-        {/* <JobCard category={"IT & Projektmanagement"} title={"(Junior) Full Stack Developer (m/w/d)"} location={"Stuttgart"} employmentStatus={"Vollzeit"}/> */}
-        <NumberedNavigation currentPage={0} totalPages={5} onBack={function (): void {
-            throw new Error("Function not implemented.");
-          } } onNext={function (): void {
-            throw new Error("Function not implemented.");
-          } }/>
-        </Content>
-        <Footer />
+        <NumberedNavigation
+          currentPage={currentPage}
+          totalPages={Math.ceil(jobs.length / cardsPerPage)}
+          onBack={() => {
+            if (currentPage > 1) {
+              setCurrentPage(currentPage - 1);
+            }
+          } }
+          onNext={() => {
+            if (currentPage < Math.ceil(jobs.length / cardsPerPage)) {
+              setCurrentPage(currentPage + 1);
+            }
+          } } onPageClick={handlePageClick}/>
+      </Content>
+      <Footer />
     </LayoutStyle>
   );
 };

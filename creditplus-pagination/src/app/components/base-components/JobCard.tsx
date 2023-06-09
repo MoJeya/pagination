@@ -9,6 +9,7 @@ const CardContainer = styled.div`
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 1rem;
+  margin-top: 1rem;
 `;
 
 const TopInfoContainer = styled.div`

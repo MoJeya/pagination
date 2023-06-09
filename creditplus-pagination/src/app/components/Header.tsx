@@ -10,7 +10,7 @@ const StyledHeader = styled.header`
     top: 81px;
     left: 0px;
     width: 100%;
-    height: 318px;
+    height: 398px;
 `;
 
 const HeaderContainer = styled.div`
@@ -59,13 +59,13 @@ const DropDownContainer = styled.div`
   justify-content: space-between;
 `;
 
-const Header: React.FC = () => {
-  const [dropdownStates, setDropdownStates] = useState([false, false, false]);
+interface IJobs {
+  amountOfJobs: number;
+}
 
-  // const toggleDropdown = (index: number) => {
-  //   const updatedState = dropdownStates.map((state, i) => i === index);
-  //   setDropdownStates(updatedState);
-  // };
+const Header: React.FC <IJobs>= (props: IJobs) => {
+  const [dropdownStates, setDropdownStates] = useState([false, false, false]);
+  const [seletedTitle, setSelectedTitle] = useState("");
 
   const toggleDropdown = (index: number) => {
     const updatedState = dropdownStates.map((state, i) => (i === index ? !state : false));
@@ -78,7 +78,7 @@ const Header: React.FC = () => {
       <Navbar />
       <HeaderContainer>
         <MainHeaderContainer>
-          <H3>56 offene Stellen bei Creditplus</H3>
+          <H3>{props.amountOfJobs} offene Stellen bei Creditplus</H3>
           <H1Container>
             <H1>Hier beginnt deine Zukunft</H1>
           </H1Container>

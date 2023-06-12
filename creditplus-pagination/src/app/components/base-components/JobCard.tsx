@@ -3,70 +3,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React from 'react';
 import styled from 'styled-components';
 
-// const CardContainer = styled.div`
-//   width: 874px;
-//   height: 145px;
-//   border: 1px solid #ccc;
-//   border-radius: 8px;
-//   padding: 1rem;
-//   margin-top: 1rem;
-// `;
-
-// const TopInfoContainer = styled.div`
-//     width: 100%;
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: space-between;
-
-// `;
-
-// const CategoryLabel = styled.h3`
-//   font-size: 14px;
-//   font-family: 'Gotham', sans-serif;
-//   color: #1AAEB7;
-//   margin-bottom: 0.5rem;
-// `;
-
-// const MoreInfo = styled.span`
-//     width: 118px;
-//     font-size: 16px;
-//     font-family: 'Gotham', sans-serif;
-//     font-weight: 500;
-//     color: #1AAEB7;
-//     text-align: right;
-//     margin-top: 0.5rem;
-// `;
-
-// const JobTitleContainer = styled.div`
-//   width: 770px;
-//   height: 20px;
-//   color: #292929;
-//   margin-top: 0.5rem;
-//   font-size: 18px;
-//   font-family: 'Gotham', sans-serif;
-
-// `;
-
-// const LocationAndOtherInf = styled.div`
-//     display: flex;
-//     flex-direction: row;
-//     justify-content: flex-start;
-//     widht: 143px;
-//     margin-top: 1rem;
-
-// `;
-
-// const Content = styled.span`
-//     font-family: 'Gotham', sans-serif;
-//     font-weight: Book;
-//     font-size: 16px;
-//     text-align: left;
-
-// `;
-
 const CardContainer = styled.div`
-  width: 100%; /* Adjust the width to fit any screen */
-  max-width: 874px; /* Set a maximum width to prevent the card from becoming too wide */
+  width: 100%;
+  max-width: 874px;
   height: 145px;
   border: 1px solid #ccc;
   border-radius: 8px;

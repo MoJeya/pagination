@@ -1,4 +1,6 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {}
+const nextConfig = {
+    // css: ['./styles/global.css'],
+}
 
 module.exports = nextConfig

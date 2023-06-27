@@ -12,6 +12,14 @@ const StyledHeader = styled.header`
   width: 100%;
   height: auto;
   padding: 1rem;
+
+  @media (max-width: 768px) { /* Adjust the breakpoint to your needs */
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  @media (max-width: 480px) { /* Adjust the breakpoint to your needs */
+    grid-template-columns: repeat(4, 1fr);
+  }
 `;
 
 const HeaderContainer = styled.div`
@@ -19,6 +27,11 @@ const HeaderContainer = styled.div`
   grid-column-start: 6;
   align-items: center;
   grid-gap: 0.5rem;
+
+    @media (max-width: 480px) {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
 `;
 
 const MainHeaderContainer = styled.div`
@@ -57,11 +70,91 @@ const DropDownContainer = styled.div`
   align-items: center;
   justify-content: center;
   grid-gap: 1rem;
+    
+  @media (max-width: 480px) { /* Adjust the breakpoint to your needs */
+    grid-auto-flow: row;
+    grid-gap: 0.5rem;
+  }
+
 `;
 
 const DropdownPickerWrapper = styled.div`
   margin: 0.5rem;
 `;
+
+// const StyledHeader = styled.header`
+//   display: grid;
+//   grid-template-columns: repeat(12, 1fr);
+//   background-color: #fafafa;
+//   color: white;
+//   width: 100%;
+//   height: auto;
+//   padding: 1rem;
+
+//   @media (max-width: 480px) { /* Adjust the breakpoint to your needs */
+//     grid-template-columns: repeat(1, 1fr);
+//   }
+// `;
+
+// const HeaderContainer = styled.div`
+//   width: 100%;
+//   grid-column-start: 1;
+//   align-items: center;
+//   grid-gap: 0.5rem;
+
+//   @media (max-width: 480px) { /* Adjust the breakpoint to your needs */
+//     grid-column-start: auto;
+//     grid-row-start: 2;
+//   }
+// `;
+
+// const MainHeaderContainer = styled.div`
+//   width: 100%;
+//   display: grid;
+//   justify-items: center;
+// `;
+
+// const H3 = styled.span`
+//   margin-top: 1rem;
+//   color: #1aaeb7;
+//   text-align: center;
+//   font-family: 'Gotham-Bold', sans-serif;
+// `;
+
+// const H1Container = styled.div`
+//   width: 100%;
+//   display: grid;
+//   justify-items: center;
+//   margin-top: 1rem;
+// `;
+
+// const H1 = styled.span`
+//   color: #004b44;
+//   font-family: 'Gotham-Medium', sans-serif;
+//   font-weight: bold;
+//   font-size: 48px;
+//   letter-spacing: -0.72px;
+//   text-align: center;
+// `;
+
+// const DropDownContainer = styled.div`
+//   width: 100%;
+//   display: grid;
+//   grid-auto-flow: column;
+//   align-items: center;
+//   justify-content: center;
+//   grid-gap: 1rem;
+
+//   @media (max-width: 480px) { /* Adjust the breakpoint to your needs */
+//     grid-auto-flow: row;
+//     grid-gap: 0.5rem;
+//   }
+// `;
+
+// const DropdownPickerWrapper = styled.div`
+//   margin: 0.5rem;
+// `;
+
 
 interface IJobs {
   amountOfJobs: number;

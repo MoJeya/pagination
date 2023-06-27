@@ -12,19 +12,20 @@ import LocationDTO from "./assets/LocationDTO";
 const LayoutStyle = styled.div`
   display: flex;
   flex-direction: column;
-  height: 1440px;
-  width: 100%;
   padding: 0;
   margin: 0;
 `;
 
+const ContentWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  
+`
+
 const Content = styled.div`
-  flex:1;
-  display: flex;
-  flex-direction: column;
-  background-color:white;
   justify-content: center;
-  align-items: center;
+  display: grid;
+  grid-column-start: 6;
 `;
 
 const Layout: React.FC = () => {
@@ -62,30 +63,32 @@ const handlePageClick = (pageNumber: number) => {
   return (
     <LayoutStyle>
       <Header amountOfJobs={jobs.length} />
-      <Content>
-        {cardsToShow.map((job, index) => (
-          <JobCard
-            location={job.location}
-            employmentStatus={job.employmentStatus}
-            key={job.id}
-            category={job.category}
-            title={job.title}
-          />
-        ))}
-        <NumberedNavigation
-          currentPage={currentPage}
-          totalPages={Math.ceil(jobs.length / cardsPerPage)}
-          onBack={() => {
-            if (currentPage > 1) {
-              setCurrentPage(currentPage - 1);
-            }
-          } }
-          onNext={() => {
-            if (currentPage < Math.ceil(jobs.length / cardsPerPage)) {
-              setCurrentPage(currentPage + 1);
-            }
-          } } onPageClick={handlePageClick}/>
-      </Content>
+        <ContentWrapper>
+          <Content>
+            {cardsToShow.map((job, index) => (
+              <JobCard
+                location={job.location}
+                employmentStatus={job.employmentStatus}
+                key={job.id}
+                category={job.category}
+                title={job.title}
+              />
+            ))}
+            <NumberedNavigation
+              currentPage={currentPage}
+              totalPages={Math.ceil(jobs.length / cardsPerPage)}
+              onBack={() => {
+                if (currentPage > 1) {
+                  setCurrentPage(currentPage - 1);
+                }
+              } }
+              onNext={() => {
+                if (currentPage < Math.ceil(jobs.length / cardsPerPage)) {
+                  setCurrentPage(currentPage + 1);
+                }
+              } } onPageClick={handlePageClick}/>
+          </Content>
+        </ContentWrapper>
       <Footer />
     </LayoutStyle>
   );

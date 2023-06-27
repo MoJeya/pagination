@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import Navbar from "./base-components/Navbar";
 import styled from "styled-components";
 import DropdownPicker from "./base-components/DropdownPicker";
-import NumberedNavigation from "./base-components/NumberdNavigation";
+// import "../../../public/styles/fonts.css"
 
 const StyledHeader = styled.header`
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   background-color: #fafafa;
   color: white;
-  top: 81px;
-  left: 0px;
   width: 100%;
   height: auto;
   padding: 1rem;
@@ -16,38 +16,34 @@ const StyledHeader = styled.header`
 
 const HeaderContainer = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  grid-column-start: 6;
+  align-items: center;
+  grid-gap: 0.5rem;
 `;
 
 const MainHeaderContainer = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-items: center;
 `;
 
 const H3 = styled.span`
   margin-top: 1rem;
   color: #1aaeb7;
   text-align: center;
-  font-family: "Gotham", sans-serif;
-  font-weight: bold;
-  font-size: 16px;
-  letter-spacing: -0.32px;
+  font-family: 'Gotham-Bold', sans-serif;
 `;
 
 const H1Container = styled.div`
   width: 100%;
-  display: flex;
-  justify-content: center;
+  display: grid;
+  justify-items: center;
   margin-top: 1rem;
 `;
 
 const H1 = styled.span`
   color: #004b44;
-  font-family: "Gotham", sans-serif;
+  font-family: 'Gotham-Medium', sans-serif;
   font-weight: bold;
   font-size: 48px;
   letter-spacing: -0.72px;
@@ -55,9 +51,12 @@ const H1 = styled.span`
 `;
 
 const DropDownContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  width: 100%;
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
   justify-content: center;
+  grid-gap: 1rem;
 `;
 
 const DropdownPickerWrapper = styled.div`
@@ -80,7 +79,7 @@ const Header: React.FC <IJobs>= (props: IJobs) => {
 
   return(
       <StyledHeader>
-        <Navbar />
+        {/* <Navbar /> */}
         <HeaderContainer>
           <MainHeaderContainer>
             <H3>{props.amountOfJobs} offene Stellen bei Creditplus</H3>

@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import GlobalStyles from '../styles/globalStyles';
+import GlobalStyles from '../public/styles/globalStyles';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
 function MyApp({ Component, pageProps }: AppProps) {

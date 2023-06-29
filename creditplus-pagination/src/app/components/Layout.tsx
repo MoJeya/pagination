@@ -20,12 +20,20 @@ const ContentWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   
+  @media (max-width: 480px) { /* Adjust the breakpoint to your needs */
+    grid-template-columns: repeat(4, 1fr);
+  }
 `
 
 const Content = styled.div`
   justify-content: center;
   display: grid;
   grid-column-start: 6;
+
+  @media (max-width: 480px) {
+    grid-column-start: 2;
+    grid-row-start: 2;
+  }
 `;
 
 const Layout: React.FC = () => {

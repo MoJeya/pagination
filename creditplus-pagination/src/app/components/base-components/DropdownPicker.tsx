@@ -8,13 +8,12 @@ import LocationDTO from '../assets/LocationDTO';
 const DropdownContainer = styled.div<{ open: boolean }>`
   display: inline-block;
   position: relative;
-  margin-top: 1rem;
-  margin-right: 1rem;
   width: 320px;
   min-width: 150px;
   height: 44px;
   border: 1px solid ${(props) => (props.open ? '#58DEE6' : '#C3C3C3')};
   border-radius: 8px;
+  background-color: var(--gray-50);
   text-align: center;
 `;
 
